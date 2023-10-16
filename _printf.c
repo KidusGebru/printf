@@ -1,10 +1,40 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include "main.h"
 
 /**
- * _print - Print a single argument
+ * print_char - Prints a single character to standard IO
+ * @c: The character
+ *
+ * Return: 1
+ */
+int print_char(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * print_str - Prints a string to standard IO
+ * @str: Pointer to string
+ *
+ * Return: Number of chars written
+ */
+int print_str(char *str)
+{
+	int counter = 0;
+
+	while (str[counter] != '\0')
+	{
+		print_char(str[counter]);
+		counter++;
+	}
+	return (counter);
+}
+
+/**
+ * _print - Calls appropriate function depending on the specifier
  * @arg_list: va_list type varible
  * @c: Format specifier
  *
@@ -13,27 +43,19 @@
 int _print(va_list arg_list, char c)
 {
 	char *str;
-	int i = 0;
 
 	switch (c)
 	{
 		case 'c':
-			printf("%c", va_arg(arg_list, int));
-			i += 1;
-			break;
+			return (print_char(va_arg(arg_list, int)));
 		case 's':
 			str = va_arg(arg_list, char *);
 			if (str != NULL)
-			{
-				printf("%s", str);
-				i += strlen(str);
-			}
-			break;
+				return (print_str(str));
+			return (0);
 		default:
-			printf("%c", c);
-			i += 1;
+			return (print_char(c));
 	}
-	return (i);
 }
 
 /**
@@ -61,10 +83,7 @@ int _printf(const char *format, ...)
 			c_count += _print(args, format[i]);
 		}
 		else
-		{
-			printf("%c", format[i]);
-			c_count += 1;
-		}
+			c_count += print_char(format[i]);
 		i++;
 	}
 	va_end(args);
