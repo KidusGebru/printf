@@ -9,5 +9,6 @@
 int _printf(const char *format, ...);
 int print_char(char c);
 int print_dec(int val);
+int print_bin(unsigned int n);
 
 #endif

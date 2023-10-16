@@ -49,6 +49,8 @@ int _print(va_list arg_list, char c)
 		case 'd':
 		case 'i':
 			return (print_dec(va_arg(arg_list, int)));
+		case 'b':
+			return (print_bin(va_arg(arg_list, unsigned int)));
 		default:
 			return (print_char('%') + print_char(c));
 	}
