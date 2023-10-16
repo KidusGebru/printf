@@ -25,6 +25,8 @@ int print_str(char *str)
 {
 	int counter = 0;
 
+	if (str == NULL)
+		return (print_str("(null)"));
 	while (str[counter] != '\0')
 	{
 		print_char(str[counter]);
@@ -42,17 +44,12 @@ int print_str(char *str)
  */
 int _print(va_list arg_list, char c)
 {
-	char *str;
-
 	switch (c)
 	{
 		case 'c':
 			return (print_char(va_arg(arg_list, int)));
 		case 's':
-			str = va_arg(arg_list, char *);
-			if (str != NULL)
-				return (print_str(str));
-			return (0);
+			return (print_str(va_arg(arg_list, char *)));
 		default:
 			return (print_char(c));
 	}
@@ -71,7 +68,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int flag = 0;
 
-	if (format == NULL)
+	if (format == NULL || strcmp(format, "%\0") == 0)
 		return (-1);
 
 	va_start(args, format);
@@ -79,7 +76,15 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			flag = 1;
+		{
+			if (flag == 1)
+			{
+				flag = 0;
+				c_count += print_char('%');
+			}
+			else
+				flag = 1;
+		}
 		else if (flag == 1)
 		{
 			flag = 0;
