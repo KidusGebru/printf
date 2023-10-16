@@ -1,7 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
@@ -50,6 +46,9 @@ int _print(va_list arg_list, char c)
 			return (print_char(va_arg(arg_list, int)));
 		case 's':
 			return (print_str(va_arg(arg_list, char *)));
+		case 'd':
+		case 'i':
+			return (print_dec(va_arg(arg_list, int)));
 		default:
 			return (print_char('%') + print_char(c));
 	}

@@ -1,6 +1,13 @@
+#include <stdarg.h>
+#include <unistd.h>
+#include <string.h>
+
 #ifndef KIDRAH_PRINTF_H
 #define KIDRAH_PRINTF_H
 
+
 int _printf(const char *format, ...);
-int _putchar(char c);
+int print_char(char c);
+int print_dec(int val);
+
 #endif
