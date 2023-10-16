@@ -51,7 +51,7 @@ int _print(va_list arg_list, char c)
 		case 's':
 			return (print_str(va_arg(arg_list, char *)));
 		default:
-			return (print_char(c));
+			return (print_char('%') + print_char(c));
 	}
 }
 
