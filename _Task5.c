@@ -12,7 +12,7 @@ int print_cstr(char *str, BUFFER *bp)
 	int counter = 0, i = 0;
 
 	if (str == NULL)
-		return (print_str("(null)", bp));
+		return (print_str("(nil)", bp));
 	while (str[i] != '\0')
 	{
 		if (str[i] > 126 || str[i] < 32)

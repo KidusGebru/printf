@@ -12,7 +12,7 @@ int print_point(void *p, BUFFER *bp)
 	unsigned long int ptr;
 
 	if (p == NULL)
-		return (print_str("(null)", bp));
+		return (print_str("(nil)", bp));
 
 	ptr = (unsigned long int)p;
 

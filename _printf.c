@@ -34,7 +34,7 @@ int print_str(char *str, BUFFER *bp)
 	int counter = 0;
 
 	if (str == NULL)
-		return (print_str("(null)", bp));
+		return (print_str("(nil)", bp));
 	while (str[counter] != '\0')
 	{
 		print_char(str[counter], bp);
@@ -76,6 +76,8 @@ int _print(va_list arg_list, char c, BUFFER *bp)
 			return (print_cstr(va_arg(arg_list, char *), bp));
 		case 'p':
 			return (print_point(va_arg(arg_list, void *), bp));
+		case 'r':
+			return (print_rstr(va_arg(arg_list, char *), 0, bp));
 		default:
 			return (print_char('%', bp) + print_char(c, bp));
 	}

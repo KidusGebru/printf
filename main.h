@@ -30,6 +30,7 @@ int print_hex(unsigned long int n, BUFFER *bp);
 int print_uhex(unsigned int n, BUFFER *bp);
 int print_cstr(char *str, BUFFER *bp);
 int print_point(void *p, BUFFER *bp);
+int print_rstr(char *str, int index, BUFFER *bp);
 
 #endif
 
