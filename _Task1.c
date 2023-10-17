@@ -7,10 +7,10 @@
  *
  * Return: Number of character written
  */
-int print_dec(long n, BUFFER *bp)
+int print_dec(int n, BUFFER *bp)
 {
-	unsigned long divider = 1000000000;
-	unsigned long value;
+	unsigned int divider = 1000000000;
+	unsigned int value;
 	int counter = 0;
 
 	if (n < 0)

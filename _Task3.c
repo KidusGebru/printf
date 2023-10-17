@@ -7,7 +7,7 @@
  *
  * Return: Number of character written
  */
-int print_udec(unsigned long n, BUFFER *bp)
+int print_udec(unsigned int n, BUFFER *bp)
 {
 	unsigned int counter = 0;
 
@@ -29,7 +29,7 @@ int print_udec(unsigned long n, BUFFER *bp)
  *
  * Return: Number of character written
  */
-int print_oct(unsigned long n, BUFFER *bp)
+int print_oct(unsigned int n, BUFFER *bp)
 {
 	unsigned int counter = 0;
 
@@ -51,7 +51,7 @@ int print_oct(unsigned long n, BUFFER *bp)
  *
  * Return: Number of character written
  */
-int print_hex(unsigned long n, BUFFER *bp)
+int print_hex(unsigned int n, BUFFER *bp)
 {
 	unsigned int counter = 0;
 	char *syms = "0123456789abcdef";
@@ -74,7 +74,7 @@ int print_hex(unsigned long n, BUFFER *bp)
  *
  * Return: Number of character written
  */
-int print_uhex(unsigned long n, BUFFER *bp)
+int print_uhex(unsigned int n, BUFFER *bp)
 {
 	unsigned int counter = 0;
 	char *syms = "0123456789ABCDEF";

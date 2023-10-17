@@ -22,12 +22,12 @@ typedef struct buf
 int _printf(const char *format, ...);
 int print_char(char c, BUFFER *bp);
 int print_str(char *str, BUFFER *bp);
-int print_dec(long val, BUFFER *bp);
+int print_dec(int val, BUFFER *bp);
 int print_bin(unsigned int n, BUFFER *bp);
-int print_udec(unsigned long n, BUFFER *bp);
-int print_oct(unsigned long  n, BUFFER *bp);
-int print_hex(unsigned long n, BUFFER *bp);
-int print_uhex(unsigned long n, BUFFER *bp);
+int print_udec(unsigned int n, BUFFER *bp);
+int print_oct(unsigned int n, BUFFER *bp);
+int print_hex(unsigned int n, BUFFER *bp);
+int print_uhex(unsigned int n, BUFFER *bp);
 
 #endif
 
