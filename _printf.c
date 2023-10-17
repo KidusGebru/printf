@@ -72,6 +72,8 @@ int _print(va_list arg_list, char c, BUFFER *bp)
 			return (print_hex(va_arg(arg_list, unsigned int), bp));
 		case 'X':
 			return (print_uhex(va_arg(arg_list, unsigned int), bp));
+		case 'S':
+			return (print_cstr(va_arg(arg_list, char *), bp));
 		default:
 			return (print_char('%', bp) + print_char(c, bp));
 	}

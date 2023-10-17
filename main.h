@@ -28,6 +28,7 @@ int print_udec(unsigned int n, BUFFER *bp);
 int print_oct(unsigned int n, BUFFER *bp);
 int print_hex(unsigned int n, BUFFER *bp);
 int print_uhex(unsigned int n, BUFFER *bp);
+int print_cstr(char *str, BUFFER *bp);
 
 #endif
 
