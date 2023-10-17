@@ -3,10 +3,11 @@
 /**
  * print_dec - Prints a signed integer
  * @n: Number to print
+ * @bp: Pointer to local buffer
  *
  * Return: Number of character written
  */
-int print_dec(int n)
+int print_dec(int n, BUFFER *bp)
 {
 	unsigned int divider = 1000000000;
 	unsigned int value;
@@ -15,10 +16,10 @@ int print_dec(int n)
 	if (n < 0)
 	{
 		n = n * -1;
-		counter += print_char('-');
+		counter += print_char('-', bp);
 	}
 	else if (n == 0)
-		return (print_char('-'));
+		return (print_char('0', bp));
 
 	value = n;
 
@@ -26,13 +27,14 @@ int print_dec(int n)
 	{
 		if (value / divider > 0)
 		{
-			counter += print_char('0' + value / divider);
+			counter += print_char('0' + value / divider, bp);
 			value %= divider;
 			if (value < divider / 10)
-				counter += print_char('0');
+				counter += print_char('0', bp);
 		}
 		divider /= 10;
 	}
 
 	return (counter);
 }
+
