@@ -85,7 +85,7 @@ int print_uhex(unsigned int n, BUFFER *bp)
 		return (print_char(syms[n], bp));
 
 	counter += print_uhex(n / 16, bp);
-	counter += print_char((n % 16) + '0', bp);
+	counter += print_char(syms[(n % 16)], bp);
 
 	return (counter);
 }
