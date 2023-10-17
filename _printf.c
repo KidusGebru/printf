@@ -78,6 +78,8 @@ int _print(va_list arg_list, char c, BUFFER *bp)
 			return (print_point(va_arg(arg_list, void *), bp));
 		case 'r':
 			return (print_rstr(va_arg(arg_list, char *), 0, bp));
+		case 'R':
+			return (print_rot13(va_arg(arg_list, char *), bp));
 		default:
 			return (print_char('%', bp) + print_char(c, bp));
 	}
