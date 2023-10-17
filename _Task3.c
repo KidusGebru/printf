@@ -51,7 +51,7 @@ int print_oct(unsigned int n, BUFFER *bp)
  *
  * Return: Number of character written
  */
-int print_hex(unsigned int n, BUFFER *bp)
+int print_hex(unsigned long int n, BUFFER *bp)
 {
 	unsigned int counter = 0;
 	char *syms = "0123456789abcdef";
@@ -62,7 +62,7 @@ int print_hex(unsigned int n, BUFFER *bp)
 		return (print_char(syms[n], bp));
 
 	counter += print_hex(n / 16, bp);
-	counter += print_char((n % 16) + '0', bp);
+	counter += print_char(syms[(n % 16)], bp);
 
 	return (counter);
 }

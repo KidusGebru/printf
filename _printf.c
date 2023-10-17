@@ -69,11 +69,13 @@ int _print(va_list arg_list, char c, BUFFER *bp)
 		case 'o':
 			return (print_oct(va_arg(arg_list, unsigned int), bp));
 		case 'x':
-			return (print_hex(va_arg(arg_list, unsigned int), bp));
+			return (print_hex(va_arg(arg_list, unsigned long int), bp));
 		case 'X':
 			return (print_uhex(va_arg(arg_list, unsigned int), bp));
 		case 'S':
 			return (print_cstr(va_arg(arg_list, char *), bp));
+		case 'p':
+			return (print_point(va_arg(arg_list, void *), bp));
 		default:
 			return (print_char('%', bp) + print_char(c, bp));
 	}
